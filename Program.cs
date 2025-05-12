@@ -1,14 +1,4 @@
-﻿static double CalcularSalario(double salarioHora, double horasTrabalhadas, double horasExtras)
-{
-    double valorHoraTrabalhada = salarioHora * horasTrabalhadas;
-    double valorHorasExtras = horasExtras * (salarioHora * 1.40);
-
-    double salarioTotal = valorHoraTrabalhada + valorHorasExtras;
-
-    return salarioTotal;
-}
-
-Console.WriteLine("------ Bem-vindo(a) programas de horas extras ------");
+﻿Console.WriteLine("------ Bem-vindo(a) programas de horas extras ------");
 
 double salarioHora, horasTrabalhadas, horasExtras;
 do {
@@ -23,10 +13,23 @@ do {
     Console.Write("Digite o número de horas extras trabalhadas: ");
 } while (!double.TryParse(Console.ReadLine(), out horasExtras) || horasExtras < 0);
 
-double salaioFinal = CalcularSalario(salarioHora, horasTrabalhadas, horasExtras);
+double salarioFinal = salarioHora * horasTrabalhadas;
+double salarioFinalHorasExtras = CalcularSalario(salarioHora, horasTrabalhadas, horasExtras);
 
-Console.WriteLine($"Salario total com acrescimo horas extras: {salaioFinal:F2}");
+Console.WriteLine($"Salario total sem acrescimo de horas extras: {salarioFinal:C2}");
+
+Console.WriteLine($"Salario total com acrescimo de horas extras: {salarioFinalHorasExtras:C2}");
 
 Console.Write("\nPressione qualquer tecla para finalizar o programa!");
 Console.ReadKey();
 Console.Clear();
+
+double CalcularSalario(double salarioHora, double horasTrabalhadas, double horasExtras)
+{
+    double valorHoraTrabalhada = salarioHora * horasTrabalhadas;
+    double valorHorasExtras = horasExtras * (salarioHora * 1.40);
+
+    double salarioTotal = valorHoraTrabalhada + valorHorasExtras;
+
+    return salarioTotal;
+}
