@@ -1,6 +1,7 @@
-﻿Console.WriteLine("------ Bem-vindo(a) programas de horas extras ------");
+﻿double salarioHora, horasTrabalhadas, horasExtras;
 
-double salarioHora, horasTrabalhadas, horasExtras;
+Console.WriteLine("------ Bem-vindo(a) programas de horas extras ------");
+
 do {
     Console.Write("Digite seu salario/hora (em R$): ");
 } while(!double.TryParse(Console.ReadLine(), out salarioHora) || salarioHora <= 0);
